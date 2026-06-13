@@ -48,13 +48,13 @@ EVENT_PING_ROLE_ID = 1487607351203856595      # 🎉 Event Ping
 # ----------------------------------------------------
 
 # ---------------- FILES ----------------
-data_file = os.getenv("data_file", "/data")
-os.makedirs(data_file, exist_ok=True)
-TEAMS_FILE = os.path.join(data_file, "teams.json")
-PLAYER_HISTORY_FILE = os.path.join(data_file, "player_history.json")
-INVITES_FILE = os.path.join(data_file, "invites.json")
-ROSTER_LOCK_FILE = os.path.join(data_file, "roster_lock.json")
-
+from pathlib import Path
+data_file = Path(os.getenv("data_file", "/data"))
+data_file.mkdir(parents=True, exist_ok=True)
+TEAMS_FILE = data_file / "teams.json"
+PLAYER_HISTORY_FILE = data_file / "player_history.json"
+INVITES_FILE = data_file / "invites.json"
+ROSTER_LOCK_FILE = data_file / "roster_lock.json"
 
 # ---------------- HELPERS ----------------
 def is_staff(user: discord.Member) -> bool:
