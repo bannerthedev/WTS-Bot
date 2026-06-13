@@ -2020,7 +2020,7 @@ async def standing(interaction: discord.Interaction):
         await interaction.followup.send("There are no teams in the system.", ephemeral=True)
         return
 
-    lines_out = ["Monke Monke Monke League SEEDING"]
+    lines_out = ["World Tag Series SEEDING"]
     rank = 1
     for name, s in ordered:
         lines_out.append(
